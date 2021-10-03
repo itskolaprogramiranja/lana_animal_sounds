@@ -2,13 +2,15 @@ $('img').on('click',showImage)
 
 $('#all').on('click',showAll)
 
-$('#sound').on('click',playSound)
+$('#chat').on('click',playSound)
 
 function showImage(e){
+    $('img').off()
     $(this).addClass('current');
-    $('#sound').attr('data-id',$(this).attr('src').split("/")[2])
+    $('#chat').attr('data-id',$(this).attr('src').split("/")[2])
     $self = $(this)
     $('img').fadeOut(800,function(){
+        $('#chat').show()
         $self.show(10)
         $self.addClass('center')
     })
@@ -25,12 +27,14 @@ function playSound(){
 }
 
 function showAll(){
+    $('#chat').hide()
     $(".current").css({
         height : "112px",
         width : "112px",
     })
     $('.current').fadeOut(200,function(){
         $(this).removeClass('current').removeClass('center')
+        $('img').on('click',showImage)
         $('img').show()
     })
 }

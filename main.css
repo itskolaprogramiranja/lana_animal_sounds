@@ -12,3 +12,12 @@
     transform: translate(-50%,-50%);
     transition: all .8s;
 }
+
+#chat {
+    display: none;
+    position: absolute;
+    left: 70vw;
+    top: 20vh;
+    box-shadow: 0 0 81px tomato;
+    border-radius: 50%;
+}
